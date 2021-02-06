@@ -274,6 +274,14 @@ let contract;
 
             contract = new web3.eth.Contract(abi, address);
 
+            // check metamask connection
+            if(!ethereum.isMetaMask) {
+                ethereum.request({ method: 'eth_requestAccounts' });
+            } else {
+                $('#connectMetamask').prop('disabled', true);
+            }
+
+            // connect metamask
             $('#connectMetamask').click(function() {
 				if(!ethereum.isMetaMask) {
 					ethereum.request({ method: 'eth_requestAccounts' });
