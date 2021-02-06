@@ -1,3 +1,19 @@
+## use basic working model
+
+- start Ganache
+
+- add atleast 2 Ganache accounts to metamask
+
+- add smart contract to remix
+
+- in remix select injected web3
+
+- deploy contract
+
+- directly open index.html by double clicking or use live server for index.html
+
+- using previously added two accounts do what you want
+
 # Goals
 
 - Use Truffle to compile and deploy Smart Contract on Ganache
