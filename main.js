@@ -4,272 +4,253 @@ let contract;
         const web3 = new Web3(Web3.givenProvider || "ws://localhost:7545");
 
             // contract address
-            const address = '0xD35fbBf13f3bE1DFCB4145D6CFDf8B9A7865DBD1'
+            const address = '0xC098D5349A63931984E45C6e701b60DdDD078148'
             const abi = [
-                {
-                    "constant": false,
-                    "inputs": [],
-                    "name": "collect",
-                    "outputs": [],
-                    "payable": false,
-                    "stateMutability": "nonpayable",
-                    "type": "function"
-                },
-                {
-                    "constant": false,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "add",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "contribute",
-                    "outputs": [],
-                    "payable": true,
-                    "stateMutability": "payable",
-                    "type": "function"
-                },
-                {
-                    "constant": false,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "add",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "finishedCrowdFunding",
-                    "outputs": [],
-                    "payable": false,
-                    "stateMutability": "nonpayable",
-                    "type": "function"
-                },
-                {
-                    "constant": false,
-                    "inputs": [
-                        {
-                            "internalType": "string",
-                            "name": "contractName",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "targetAmountEth",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "durationInMin",
-                            "type": "uint256"
-                        }
-                    ],
-                    "name": "newCF",
-                    "outputs": [],
-                    "payable": false,
-                    "stateMutability": "nonpayable",
-                    "type": "function"
-                },
-                {
-                    "constant": false,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "add",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "withdraw",
-                    "outputs": [],
-                    "payable": false,
-                    "stateMutability": "nonpayable",
-                    "type": "function"
-                },
-                {
-                    "constant": true,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "allCF",
-                    "outputs": [
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "targetAmount",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "fundingDeadline",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "address payable",
-                            "name": "beneficiary",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "enum CrowdFunding.State",
-                            "name": "state",
-                            "type": "uint8"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "collected",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "totalCollected",
-                            "type": "uint256"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                },
-                {
-                    "constant": true,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "",
-                            "type": "uint256"
-                        }
-                    ],
-                    "name": "allOldCF",
-                    "outputs": [
-                        {
-                            "internalType": "string",
-                            "name": "name",
-                            "type": "string"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "targetAmount",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "fundingDeadline",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "address payable",
-                            "name": "beneficiary",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "enum CrowdFunding.State",
-                            "name": "state",
-                            "type": "uint8"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "collected",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "totalCollected",
-                            "type": "uint256"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                },
-                {
-                    "constant": true,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "add",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "beforeDeadLine",
-                    "outputs": [
-                        {
-                            "internalType": "bool",
-                            "name": "",
-                            "type": "bool"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                },
-                {
-                    "constant": true,
-                    "inputs": [],
-                    "name": "getState",
-                    "outputs": [
-                        {
-                            "internalType": "enum CrowdFunding.State",
-                            "name": "",
-                            "type": "uint8"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                },
-                {
-                    "constant": true,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "add",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "getTargetAmount",
-                    "outputs": [
-                        {
-                            "internalType": "uint256",
-                            "name": "",
-                            "type": "uint256"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                },
-                {
-                    "constant": true,
-                    "inputs": [
-                        {
-                            "internalType": "address",
-                            "name": "add",
-                            "type": "address"
-                        }
-                    ],
-                    "name": "totalFundRaised",
-                    "outputs": [
-                        {
-                            "internalType": "uint256",
-                            "name": "",
-                            "type": "uint256"
-                        }
-                    ],
-                    "payable": false,
-                    "stateMutability": "view",
-                    "type": "function"
-                }
+                [
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
+		"name": "finishedCrowdFunding",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getState",
+		"outputs": [
+			{
+				"internalType": "enum CrowdFunding.State",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "contractName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "targetAmountEth",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "durationInMin",
+				"type": "uint256"
+			}
+		],
+		"name": "newCF",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
+		"name": "beforeDeadLine",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
+		"name": "contribute",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "add",
+				"type": "address"
+			}
+		],
+		"name": "totalFundRaised",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "allOldCF",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "targetAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "fundingDeadline",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"internalType": "enum CrowdFunding.State",
+				"name": "state",
+				"type": "uint8"
+			},
+			{
+				"internalType": "bool",
+				"name": "collected",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalCollected",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "allCF",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "targetAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "fundingDeadline",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "beneficiary",
+				"type": "address"
+			},
+			{
+				"internalType": "enum CrowdFunding.State",
+				"name": "state",
+				"type": "uint8"
+			},
+			{
+				"internalType": "bool",
+				"name": "collected",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "totalCollected",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "collect",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
             ]
 
             contract = new web3.eth.Contract(abi, address);
