@@ -4,53 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crowd Funding</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <span class="navbar-brand mb-0 h1">Crowd Funding</span><br>
+    </nav>
 </head>
 <body>
-    <h1>Crowd Funding</h1>
-    <p><button id="connectMetamask">Connect Metamsk</button></p>
+    <div class="container-fluid">
+       <h1 class="text-center">Crowd Funding<br><small class="text-muted">A Decentralized Platform</small><br></h1>
     
-    <h3>#Create New Crowd Funding</h3>
-    <p>Have A Campaign: <span id="have-campaign"> - </span></p>
-    <p>Target Amount: <span id="show-target-amount"> - </span> Wei</p>
-    <p>State OF Campaign: <span id="state"> - </span></p>
-    <p>Total Fund Raised Till Now: 
-        <span id="total-funcding"> - </span>
-    </p>
-    <p>Deadline Reached: 
-        <span id="deadline-reached"> - </span>
-    </p>
+    <p class="text-center"><button id="connectMetamask" class="btn btn-info">Connect Metamask</button></p><br>
+    </div>
+    
+    <div class="container-fluid ">
+        <h3 class="h3 text-center">Create Your Campaign</h3>
+        <div class="jumbotron mx-auto text-center">
+            <p class="lead"> <strong>Have A Campaign: </strong> <span id="have-campaign">  </span></p>
+            <p class="lead"> <strong>Target Amount: </strong> <span id="show-target-amount">  </span> Wei</p>
+            <p class="lead"> <strong>State OF Campaign: </strong> <span id="state">  </span></p>
+            <p class="lead"> <strong>Total Fund Raised Till Now: </strong> 
+                <span id="total-funcding">  </span>
+            </p>
+            <p class="lead"><strong>Deadline Reached:</strong> 
+                <span id="deadline-reached">  </span>
+            </p>
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <form>
+            <div class="form-row">
+                <div class="container col">
+                    <input type="text" id="name" class="form-control" placeholder="Name">
+                </div>
+                <div class="container col">
+                    <input type="text" class="form-control" id="target-amt" step="0.1" placeholder="Target Amount">
+                </div>
+                <div class="container col">
+                    <input type="text" id="name" class="form-control" id="duration" placeholder="Duration (Minutes)">
+                </div><br>
+            </div><br>
+            
+                <div class="form-row">
+                    <div class="container col">
+                        <button type="submit" class="btn btn-primary" id="create-new">Create New</button>
+                    </div>
+                    <div class="container col">
+                        <button id="finish-my-crowd-funding" class="btn btn-primary">Finish My Crowd Funding</button>
+                    </div>
+                    <div class="container col">
+                        <button id="collect" class="btn btn-primary">Collect Amount</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    
 
-    <input type="text" id="name" placeholder="Name">
-    <input type="number" id="target-amt" step="0.1" placeholder="Target Amount">
-    <input type="number" id="duration" placeholder="Duration (Minutes)">
-    <p><button id="create-new">Create New</button></p>
 
-    <p><button id="finish-my-crowd-funding">Finish My Crowd Funding</button></p>
-    <p><button id="collect">Collect Amount</button></p>
+    <hr class="my-4">
+
+
+    <h3 class="h3">Contribute To Other's Campaign</h3>
+    <div class="form-row">
+        <div class="container col">
+            <input type="text" class="form-control" id="contribute-address" placeholder="Address">
+        </div>
+        <div class="container col">
+            <input type="number" class="form-control" id="contribute-amount" min="0" placeholder="Amount (ETH)">
+        </div>
+        <div class="container col"><button id="contribute" class="btn btn-success">Contribute</button></div>
+    </div>
+    <p>
+        
+    </p>
 
     <hr>
 
 
-    <h3>#Contribute To Others Crowd Funding</h3>
-    <p>
-        <input type="text" id="contribute-address" placeholder="Address">
-        <input type="number" id="contribute-amount" min="0" placeholder="Amount (ETH)">
-        <button id="contribute">Contibute</button>
-    </p>
-
-    <hr>
-
-
-    <h3>#Take Your Money Back</h3>
-    <p>
-        <input type="text" id="withdraw-address" placeholder="Address">
-        <button id="withdraw">Withdraw</button>
-    </p>
+    <h3 class="h3">Take Your Money Back</h3>
+    <div class="form-row">
+        <div class="container col">
+            <input type="text" class="form-control" id="withdraw-address" placeholder="Address">
+        </div>
+        <div class="container col">
+            <button id="withdraw" class="btn btn-success">Withdraw</button>
+        </div>
+    </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
 
     <script src="main.js"></script>
 </body>
