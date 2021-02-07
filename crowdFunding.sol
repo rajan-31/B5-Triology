@@ -17,13 +17,7 @@ contract CrowdFunding {
         CrowdFundings[] oldCFs;
     }
 
-    mapping(address => CrowdFundings) public allCF;    // allCrowdFundings
-    mapping(address => CrowdFundings[]) public allOldCF;
-
-    modifier inState(State expectedState, address add) {
-        require(allCF[add].state == expectedState, "Invalid State");
-        _;
-    }
+    
     
     // constructor() public {}
     
