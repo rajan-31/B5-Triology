@@ -1,4 +1,8 @@
-## use basic working model
+## Heroku Deployment
+
+*https://safe-crag-75774.herokuapp.com/*
+
+## Guide For Local Deployment
 
 - start Ganache
 
@@ -16,20 +20,6 @@
 
 - using previously added two accounts do what you want
 
-# Goals
-
-- ~~Use Truffle to compile and deploy Smart Contract on Ganache~~
-
-- Write test on truffle
-
-- Add/ Improve React Frontend
-
-- Put client side on Express server
-
-- Check for Security vulnerabilities
-
-- ~~deploy Smart contract on Rinkby Test Network~~
-
 ---
 
 ## Status of project
@@ -43,6 +33,9 @@ Stage 2 (Complete)
 
 - Fully Functioning Frontend is implemented.
 
+Stage 3 (Complete)
+
+- Deploy On Heroku 
 ---
 # PROBLEM STATEMENT​
 
