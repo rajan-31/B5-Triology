@@ -10,13 +10,15 @@
 
 - deploy contract
 
+- put address where contract is deployed in main.js file
+
 - directly open index.html by double clicking or use live server for index.html
 
 - using previously added two accounts do what you want
 
 # Goals
 
-- Use Truffle to compile and deploy Smart Contract on Ganache
+- ~~Use Truffle to compile and deploy Smart Contract on Ganache~~
 
 - Write test on truffle
 
@@ -26,15 +28,20 @@
 
 - Check for Security vulnerabilities
 
-- deploy Smart contract on Rinkby Test Network
+- ~~deploy Smart contract on Rinkby Test Network~~
 
 ---
 
 ## Status of project
-
+Stage 1 (Complete)
 - currently version 1 of smart contract is written and tested on remix IDE in Javascript VM and also with Ganache.
 
 - also basic html frontend with a web3.js injection is partially done. (This is temporary)
+
+Stage 2 (Complete)
+- currently version 2 of smart contract is written and tested on Ganache virtual blockchain & Rinkeby Test Network.
+
+- Fully Functioning Frontend is implemented.
 
 ---
 # PROBLEM STATEMENT​
