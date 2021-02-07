@@ -4,8 +4,31 @@ let contract;
         const web3 = new Web3(Web3.givenProvider || "ws://localhost:7545");
 
             // contract address
-            const address = '0xEd12C08F4D60d5f6d41bEd1721E1c624CeE642Be'
+            const address = '0x9D4d04612B078A676CAa740a33bd7f93D69642B3'
             const abi = [
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "collect",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "contribute",
+					"outputs": [],
+					"payable": true,
+					"stateMutability": "payable",
+					"type": "function"
+				},
 				{
 					"constant": false,
 					"inputs": [
@@ -43,44 +66,6 @@ let contract;
 					"type": "function"
 				},
 				{
-					"constant": true,
-					"inputs": [
-						{
-							"name": "add",
-							"type": "address"
-						}
-					],
-					"name": "getState",
-					"outputs": [
-						{
-							"name": "",
-							"type": "uint8"
-						}
-					],
-					"payable": false,
-					"stateMutability": "view",
-					"type": "function"
-				},
-				{
-					"constant": true,
-					"inputs": [
-						{
-							"name": "add",
-							"type": "address"
-						}
-					],
-					"name": "beforeDeadLine",
-					"outputs": [
-						{
-							"name": "",
-							"type": "bool"
-						}
-					],
-					"payable": false,
-					"stateMutability": "view",
-					"type": "function"
-				},
-				{
 					"constant": false,
 					"inputs": [
 						{
@@ -95,31 +80,41 @@ let contract;
 					"type": "function"
 				},
 				{
-					"constant": false,
-					"inputs": [
-						{
-							"name": "add",
-							"type": "address"
-						}
-					],
-					"name": "contribute",
-					"outputs": [],
-					"payable": true,
-					"stateMutability": "payable",
-					"type": "function"
-				},
-				{
 					"constant": true,
 					"inputs": [
 						{
-							"name": "add",
+							"name": "",
 							"type": "address"
 						}
 					],
-					"name": "totalFundRaised",
+					"name": "allCF",
 					"outputs": [
 						{
-							"name": "",
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"name": "targetAmount",
+							"type": "uint256"
+						},
+						{
+							"name": "fundingDeadline",
+							"type": "uint256"
+						},
+						{
+							"name": "beneficiary",
+							"type": "address"
+						},
+						{
+							"name": "state",
+							"type": "uint8"
+						},
+						{
+							"name": "collected",
+							"type": "bool"
+						},
+						{
+							"name": "totalCollected",
 							"type": "uint256"
 						}
 					],
@@ -178,39 +173,34 @@ let contract;
 					"constant": true,
 					"inputs": [
 						{
-							"name": "",
+							"name": "add",
 							"type": "address"
 						}
 					],
-					"name": "allCF",
+					"name": "beforeDeadLine",
 					"outputs": [
 						{
-							"name": "name",
-							"type": "string"
-						},
-						{
-							"name": "targetAmount",
-							"type": "uint256"
-						},
-						{
-							"name": "fundingDeadline",
-							"type": "uint256"
-						},
-						{
-							"name": "beneficiary",
-							"type": "address"
-						},
-						{
-							"name": "state",
-							"type": "uint8"
-						},
-						{
-							"name": "collected",
+							"name": "",
 							"type": "bool"
-						},
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
 						{
-							"name": "totalCollected",
-							"type": "uint256"
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "getState",
+					"outputs": [
+						{
+							"name": "",
+							"type": "uint8"
 						}
 					],
 					"payable": false,
@@ -237,12 +227,22 @@ let contract;
 					"type": "function"
 				},
 				{
-					"constant": false,
-					"inputs": [],
-					"name": "collect",
-					"outputs": [],
+					"constant": true,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "totalFundRaised",
+					"outputs": [
+						{
+							"name": "",
+							"type": "uint256"
+						}
+					],
 					"payable": false,
-					"stateMutability": "nonpayable",
+					"stateMutability": "view",
 					"type": "function"
 				}
 			]
