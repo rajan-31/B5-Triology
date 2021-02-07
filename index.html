@@ -16,48 +16,54 @@
     
     <p class="text-center"><button id="connectMetamask" class="btn btn-info">Connect Metamask</button></p><br>
     </div>
+    <hr><br>
     
-    <div class="container-fluid ">
-        <h3 class="h3 text-center">Create Your Campaign</h3>
-        <div class="jumbotron mx-auto text-center">
-            <p class="lead"> <strong>Have A Campaign: </strong> <span id="have-campaign">  </span></p>
-            <p class="lead"> <strong>Target Amount: </strong> <span id="show-target-amount">  </span> Wei</p>
-            <p class="lead"> <strong>State OF Campaign: </strong> <span id="state">  </span></p>
-            <p class="lead"> <strong>Total Fund Raised Till Now: </strong> 
-                <span id="total-funcding">  </span>
-            </p>
-            <p class="lead"><strong>Deadline Reached:</strong> 
-                <span id="deadline-reached">  </span>
-            </p>
+    <div id="my-campaign-data">
+        <div  class="container-fluid ">
+            <h3 class="h3 text-center">My Campaign</h3>
+            <div class="jumbotron mx-auto text-center">
+                <p class="lead"> <strong>Campaign Address: </strong> <span id="campaign-address"> - </span></p>
+                <p class="lead"> <strong>Target Amount: </strong> <span id="show-target-amount" class="font-weight-bold"> - </span> <span class="text-info font-weight-bold"> ETH</span></p>
+                <p class="lead"> <strong>Total Fund Raised: </strong> 
+                    <span id="total-funding" class="font-weight-bold">  </span> <span class="text-info font-weight-bold"> ETH</span>
+                </p>
+                <p class="lead"> <strong>State OF Campaign: </strong> <span id="state"> - </span></p>
+                <p class="lead"><strong>Deadline Reached:</strong> 
+                    <span id="deadline-reached">  </span>
+                </p>
+            </div>
+        </div>
+        <div class="row mx-3">
+                
+            <div class="container col-6">
+                <button id="finish-my-crowd-funding" class="btn btn-warning btn-block">Finish My Crowd Funding</button>
+            </div>
+            <div class="container col-6">
+                <button id="collect" class="btn btn-success btn-block">Collect Amount</button>
+            </div>
         </div>
     </div>
-    <div class="container mx-auto">
-        <form>
-            <div class="form-row">
-                <div class="container col">
+
+    <div id="my-campaign-creation" class="container">
+        <h3 class="h3 text-center">Create Your Campaign</h3>
+            <div class="row">
+                <div class="container my-1 col-lg-3 col-md-6">
                     <input type="text" id="name" class="form-control" placeholder="Name">
                 </div>
-                <div class="container col">
-                    <input type="text" class="form-control" id="target-amt" step="0.1" placeholder="Target Amount">
+                <div class="container my-1 col-lg-3 col-md-6">
+                    <input type="number" step="0.000001" min="0" class="form-control" id="target-amt" placeholder="Target Amount (finney)">
                 </div>
-                <div class="container col">
-                    <input type="text" id="name" class="form-control" id="duration" placeholder="Duration (Minutes)">
+                <div class="container my-1 col-lg-3 col-md-6">
+                    <input type="number" step="1" min="0" class="form-control" id="duration" placeholder="Duration (Minutes)">
+                </div>
+                <div class="container my-1 col-lg-3 col-md-6">
+                    <button class="btn btn-primary btn-block" id="create-new">Create New</button>
                 </div><br>
-            </div><br>
-            
-                <div class="form-row">
-                    <div class="container col">
-                        <button type="submit" class="btn btn-primary" id="create-new">Create New</button>
-                    </div>
-                    <div class="container col">
-                        <button id="finish-my-crowd-funding" class="btn btn-primary">Finish My Crowd Funding</button>
-                    </div>
-                    <div class="container col">
-                        <button id="collect" class="btn btn-primary">Collect Amount</button>
-                    </div>
-                </div>
             </div>
-        </form>
+            <div class="text-center mx-5"><i class="fas fa-info-circle"></i> <span class="small">1 ETH = 1000 milli ether</span> </div>
+            
+        </div>
+        
         
     </div>
     
@@ -65,40 +71,43 @@
 
     <hr class="my-4">
 
+    <div class="container mb-5">
+        <h3 class="h3  text-center">Contribute To Other's Campaign</h3>
 
-    <h3 class="h3">Contribute To Other's Campaign</h3>
-    <div class="form-row">
-        <div class="container col">
-            <input type="text" class="form-control" id="contribute-address" placeholder="Address">
+        <div class="row">
+            <div class="container col-4">
+                <input type="text" class="form-control" id="contribute-address" placeholder="Address">
+            </div>
+            <div class="container col-4">
+                <input type="number" class="form-control" id="contribute-amount" min="0" step="1" placeholder="Amount (milli ETH)">
+            </div>
+            <div class="container col-4"><button id="contribute" class="btn btn-success btn-block">Contribute</button></div>
         </div>
-        <div class="container col">
-            <input type="number" class="form-control" id="contribute-amount" min="0" placeholder="Amount (ETH)">
-        </div>
-        <div class="container col"><button id="contribute" class="btn btn-success">Contribute</button></div>
-    </div>
-    <p>
+
+        <div class="text-center mx-5 my-2"><i class="fas fa-info-circle"></i> <span class="small">1 ETH = 1000 milli ether</span> </div>
+    
+        <hr  class="my-4">
+    
+        <h3 class="h3  text-center">Take Your Money Back</h3>
+        <div class="text-center my-2 mx-5 text-warning"><i class="fas fa-info-circle"></i> <span class="small">It will succeed, if campaign is not over</span> </div>
         
-    </p>
-
-    <hr>
-
-
-    <h3 class="h3">Take Your Money Back</h3>
-    <div class="form-row">
-        <div class="container col">
-            <input type="text" class="form-control" id="withdraw-address" placeholder="Address">
-        </div>
-        <div class="container col">
-            <button id="withdraw" class="btn btn-success">Withdraw</button>
+        <div class="form-row">
+            <div class="container col">
+                <input type="text" class="form-control" id="withdraw-address" placeholder="Address Of Campaign/ Owner">
+            </div>
+            <div class="container col">
+                <button id="withdraw" class="btn btn-success btn-block">Withdraw</button>
+            </div>
         </div>
     </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a4d6a75639.js" crossorigin="anonymous"></script>
 
     <script src="main.js"></script>
 </body>

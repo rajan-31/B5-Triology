@@ -64,12 +64,15 @@ contract CrowdFunding {
         }
     }
 
-    function withdraw(address add) public inState(State.Failed, add) {
+    function withdraw(address add) public {
         require(allCF[add].amounts[msg.sender] > 0, "Nothing was Contributed");
+        require(beforeDeadLine(add), "Campaign is over!");
         uint256 contributed = allCF[add].amounts[msg.sender];
         allCF[add].amounts[msg.sender] = 0;
         if (!msg.sender.send(contributed)) {
             allCF[add].amounts[msg.sender] = contributed;
+        } else {
+            allCF[add].totalCollected -= contributed;
         }
     }
 
@@ -81,8 +84,13 @@ contract CrowdFunding {
         return allCF[add].totalCollected;
     }
     
-    function getState() public view returns(State) {
-        return allCF[msg.sender].state;
+    function getTargetAmount(address add) public view returns (uint256) {
+        return allCF[add].targetAmount;
+    }
+    
+    
+    function getState(address add) public view returns(State) {
+        return allCF[add].state;
     }
 
     function currentTime() internal view returns (uint256) {
@@ -90,6 +98,6 @@ contract CrowdFunding {
     }
 
     function convertToWei(uint256 sumInEth) internal pure returns (uint256) {
-        return sumInEth * 1 ether;
+        return sumInEth * 1 finney;
     }
 }

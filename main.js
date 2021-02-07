@@ -4,254 +4,248 @@ let contract;
         const web3 = new Web3(Web3.givenProvider || "ws://localhost:7545");
 
             // contract address
-            const address = '0xC098D5349A63931984E45C6e701b60DdDD078148'
+            const address = '0xEd12C08F4D60d5f6d41bEd1721E1c624CeE642Be'
             const abi = [
-                [
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
-			}
-		],
-		"name": "finishedCrowdFunding",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getState",
-		"outputs": [
-			{
-				"internalType": "enum CrowdFunding.State",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "contractName",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "targetAmountEth",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "durationInMin",
-				"type": "uint256"
-			}
-		],
-		"name": "newCF",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
-			}
-		],
-		"name": "beforeDeadLine",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
-			}
-		],
-		"name": "withdraw",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
-			}
-		],
-		"name": "contribute",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "add",
-				"type": "address"
-			}
-		],
-		"name": "totalFundRaised",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "allOldCF",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "targetAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "fundingDeadline",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "beneficiary",
-				"type": "address"
-			},
-			{
-				"internalType": "enum CrowdFunding.State",
-				"name": "state",
-				"type": "uint8"
-			},
-			{
-				"internalType": "bool",
-				"name": "collected",
-				"type": "bool"
-			},
-			{
-				"internalType": "uint256",
-				"name": "totalCollected",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "allCF",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "targetAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "fundingDeadline",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "beneficiary",
-				"type": "address"
-			},
-			{
-				"internalType": "enum CrowdFunding.State",
-				"name": "state",
-				"type": "uint8"
-			},
-			{
-				"internalType": "bool",
-				"name": "collected",
-				"type": "bool"
-			},
-			{
-				"internalType": "uint256",
-				"name": "totalCollected",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "collect",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]
-            ]
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "finishedCrowdFunding",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"name": "contractName",
+							"type": "string"
+						},
+						{
+							"name": "targetAmountEth",
+							"type": "uint256"
+						},
+						{
+							"name": "durationInMin",
+							"type": "uint256"
+						}
+					],
+					"name": "newCF",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "getState",
+					"outputs": [
+						{
+							"name": "",
+							"type": "uint8"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "beforeDeadLine",
+					"outputs": [
+						{
+							"name": "",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "withdraw",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "contribute",
+					"outputs": [],
+					"payable": true,
+					"stateMutability": "payable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "totalFundRaised",
+					"outputs": [
+						{
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"name": "",
+							"type": "address"
+						},
+						{
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"name": "allOldCF",
+					"outputs": [
+						{
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"name": "targetAmount",
+							"type": "uint256"
+						},
+						{
+							"name": "fundingDeadline",
+							"type": "uint256"
+						},
+						{
+							"name": "beneficiary",
+							"type": "address"
+						},
+						{
+							"name": "state",
+							"type": "uint8"
+						},
+						{
+							"name": "collected",
+							"type": "bool"
+						},
+						{
+							"name": "totalCollected",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"name": "",
+							"type": "address"
+						}
+					],
+					"name": "allCF",
+					"outputs": [
+						{
+							"name": "name",
+							"type": "string"
+						},
+						{
+							"name": "targetAmount",
+							"type": "uint256"
+						},
+						{
+							"name": "fundingDeadline",
+							"type": "uint256"
+						},
+						{
+							"name": "beneficiary",
+							"type": "address"
+						},
+						{
+							"name": "state",
+							"type": "uint8"
+						},
+						{
+							"name": "collected",
+							"type": "bool"
+						},
+						{
+							"name": "totalCollected",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"name": "add",
+							"type": "address"
+						}
+					],
+					"name": "getTargetAmount",
+					"outputs": [
+						{
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "collect",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			]
 
             contract = new web3.eth.Contract(abi, address);
 
@@ -259,6 +253,7 @@ let contract;
             if(!ethereum.isMetaMask) {
                 ethereum.request({ method: 'eth_requestAccounts' });
             } else {
+				$('#connectMetamask').html("Metamask Is Connected")
                 $('#connectMetamask').prop('disabled', true);
             }
 
@@ -268,9 +263,14 @@ let contract;
 					ethereum.request({ method: 'eth_requestAccounts' });
 				} else {
 					alert('Metamask Already connected...');
+					$(this).prop('disabled', true);
 				}
-				$(this).prop('disabled', true);
 			});
+
+			// reload window on account change
+			window.ethereum.on('accountsChanged', function (accounts) {
+				window.location.reload();
+			  })
 
             // intialization
             web3.eth.getAccounts().then(function(accounts) {
@@ -278,15 +278,17 @@ let contract;
 
                 contract.methods.getTargetAmount(acc).call().then(function(result) {
                     if(result > 0) {
-                        $('#have-campaign').html("Yes");
-                        $('#show-target-amount').html(result)
-                        contract.methods.getState().call().then(function(result) {
+						$('#my-campaign-creation').attr('hidden', "true")
+                        $('#campaign-address').html(acc);
+						
+                        $('#show-target-amount').html( parseFloat( web3.utils.fromWei(result, 'milli')/1000 ).toFixed(3) );
+                        contract.methods.getState(acc).call().then(function(result) {
                             const states = ["Ongoing", "Failed", "Succeeded", "PaidOut"]
                             $('#state').html(states[result]);
                         });
 
                         contract.methods.totalFundRaised(acc).call().then(function(result) {
-                            $('#total-funcding').html(result);
+                            $('#total-funding').html(parseFloat( web3.utils.fromWei(result, 'milli')/1000 ).toFixed(3));
                         });
 
                         contract.methods.beforeDeadLine(acc).call().then(function(result) {
@@ -296,15 +298,17 @@ let contract;
                                 $('#deadline-reached').html("True");
                         });
                     }
-                    else
-                        $('#have-campaign').html("NO");
+                    else{
+                        // $('#have-campaign').html("NO");
+						$('#my-campaign-data').attr('hidden', "true");
+					}
                 });
             });
 
             // add campaign
             $('#create-new').click(function() {
                 const name = $('#name').val();
-                const targetAmt = parseInt($('#target-amt').val());
+                const targetAmt = $('#target-amt').val() //web3.utils.toWei($('#target-amt').val(), 'ether');
                 const duration = parseInt($('#duration').val());
 
                 if(name && targetAmt>0 && duration>0) {
@@ -314,8 +318,11 @@ let contract;
                         contract.methods.newCF(name, targetAmt, duration)
                         .send({from: acc})
                         .then(function(result) {
-                            console.log(result);
-                        });
+                            alert("Campaign Creted Successfully, please refresh the page.");
+							window.location.reload();
+                        }).catch(function(err) {
+							console.log(err)
+						});
 
                     });
 
@@ -323,19 +330,24 @@ let contract;
             });
 
             // donate
-            $('#contribute').click(function() {
+            $('#contribute').click(function() { 
                 const toAddress = $('#contribute-address').val();
-                const amount = $('#contribute-amount').val();
-
+                const _amount = parseInt($('#contribute-amount').val());
+				const amount = _amount.toString()
+				// console.log(typeof(amount));
+				// console.log(web3.utils.toWei(amount, 'milli'))
                 if(toAddress && amount>0 ) {
                     web3.eth.getAccounts().then(function(accounts) {
                         const acc = accounts[0];
                     
                         contract.methods.contribute(toAddress)
-                        .send({from: acc, value: web3.utils.toWei(amount, 'ether')})
+                        .send({from: acc, value: web3.utils.toWei(amount, 'milli') })
                         .then(function(result) {
-                            console.log(result);
-                        });
+							alert("You have successfully contributed "+ amount + " milli ETH")
+							window.location.reload();
+                        }).catch(function(err) {
+							console.log(err);
+						});
 
                     });
 
@@ -349,8 +361,11 @@ let contract;
 
                     contract.methods.finishedCrowdFunding(acc).send({from: acc})
                     .then(function(result) {
-                        console.log(result);
-                    });
+                        alert("Your campaign is finished now.")
+						window.location.reload();
+                    }).catch(function(err) {
+						console.log(err);
+					});
                 });
             });
 
@@ -361,22 +376,30 @@ let contract;
 
                     contract.methods.collect().send({from: acc})
                     .then(function(result) {
-                        console.log(result);
-                    });
+                        alert("Your collected amount to your account.");
+						window.location.reload();
+                    }).catch(function(err) {
+						console.log(err);
+					});
                 });
             });
             
             // withdraw
             $('#withdraw').click(function() {
                 const address = $('#withdraw-address').val();
+				if(address) {
+					web3.eth.getAccounts().then(function(accounts) {
+						const acc = accounts[0];
 
-                web3.eth.getAccounts().then(function(accounts) {
-                    const acc = accounts[0];
-
-                    contract.methods.withdraw(address).send({from: acc})
-                    .then(function(result) {
-                        console.log(result);
-                    });
-                });
+						contract.methods.withdraw(address).send({from: acc})
+						.then(function(result) {
+							alert("Your ethers are refunded successfully!")
+							window.location.reload();
+						}).catch(function(err) {
+							console.log(err)
+						});
+					});
+				}
             });
+
     });
